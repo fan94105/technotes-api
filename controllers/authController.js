@@ -51,7 +51,7 @@ const login = async (req, res) => {
   res.cookie("jwt", refreshToken, {
     httpOnly: true, // 是否只能在 HTTP 請求訪問 cookie，不能透過 JS 訪問
     secure: true, // 是否只在 HTTPS 中傳送 cookie
-    sameSite: false, // 是否在跨站請求中發送 cookie
+    sameSite: "None", // 是否在跨站請求中發送 cookie
     maxAge: 7 * 24 * 60 * 60 * 1000, // cookie 的有效時間
   })
 
@@ -117,7 +117,7 @@ const logout = (req, res) => {
   res.clearCookie("jwt", {
     httpOnly: true, // 是否只能在 HTTP 請求訪問 cookie，不能透過 JS 訪問
     secure: true, // 是否只在 HTTPS 中傳送 cookie
-    sameSite: false, // 是否在跨站請求中發送 cookie
+    sameSite: "None", // 是否在跨站請求中發送 cookie
     maxAge: 7 * 24 * 60 * 60 * 1000, // cookie 的有效時間
   })
 
